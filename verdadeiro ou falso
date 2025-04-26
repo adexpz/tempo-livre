@@ -1,0 +1,80 @@
+using System.ComponentModel.Design;
+//verdadeiro ou falso com os negoes molestadores//
+//console.readkey = espera o usuario clica alguma tecla para exibir a proxima pergunta 
+//console.clear =apaga as questoes acimar apos o usuario clica em qualquer tecla 
+
+String questoes, questoes2;
+int questao3, pontos = 0;
+Console.WriteLine("digite V ou F (verdadeiro ou falso) nas questoes seguintes");
+
+Console.WriteLine("a segunda guerra aconteceu em 1500?");
+questoes = Console.ReadLine().ToLower();
+
+switch (questoes)
+{
+    case "f":
+        Console.WriteLine("sabido demais");
+        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+        Console.ReadKey();
+        pontos++;
+        break;
+    default:
+        Console.WriteLine("burro pra krlh");
+        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+        Console.ReadKey();
+       
+        pontos--;
+        break;
+}
+
+Console.Clear();
+
+Console.WriteLine("o descobrimento do brasil foi em 1602?");
+questoes2 = Console.ReadLine().ToLower();
+switch (questoes2)
+{
+    case "f":
+        Console.WriteLine("sabido");
+        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+        Console.ReadKey();
+        pontos++;
+
+        break;
+        default:
+        Console.WriteLine("os negoes sempre estrupa e bate. burro pra krlh");
+        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+        Console.ReadKey();
+        
+        pontos--;
+        break;
+}
+
+Console.Clear();
+
+Console.WriteLine("oque acontecia com os povos nativos do brasil apos as chegada dos portugueses");
+Console.WriteLine("1-abusados");
+Console.WriteLine("2-escravizados");
+Console.WriteLine("3-chicoteados");
+Console.WriteLine("4-todas alternativa a cima");
+questao3 = Convert.ToInt32(Console.ReadLine());
+
+switch (questao3)
+
+{
+    case 4:
+        Console.WriteLine("sabido demais");
+        pontos++;
+        break;
+    default:
+        pontos--;
+        break;
+}
+if ( pontos >=2)
+{
+    Console.WriteLine("o total foi:"  + pontos+  " voce passou");
+}
+else
+{
+    Console.WriteLine("o total foi:"  + pontos +  " voce tem que estudar mais");
+    
+}
