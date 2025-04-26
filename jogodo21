@@ -1,0 +1,133 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static Random random = new Random();
+    static List<string> baralho = new List<string>()
+    {
+        "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"
+    };
+
+    static void Main()
+    {
+        List<string> Jogador = new List<string>();
+        List<string> adex = new List<string>();
+
+        Jogador.Add(CriarCarta());
+        Jogador.Add(CriarCarta());
+        adex.Add(CriarCarta());
+        adex.Add(CriarCarta());
+
+        Console.WriteLine("Bem-vindo ao Blackjack!");
+
+        Console.WriteLine($"Sua mão: {string.Join(", ", Jogador)} (Total: {CalcularPontuacao(Jogador)})");
+        Console.WriteLine($"Primeira carta de adex: {adex[0]}");
+
+        bool jogoEmAndamento = true;
+
+        while (jogoEmAndamento)
+        {
+            Console.WriteLine("Deseja [P]edir carta ou [F]icar?");
+            string escolha = Console.ReadLine().ToLower();
+
+            if (escolha == "p")
+            {
+                Jogador.Add(CriarCarta());
+                Console.WriteLine($"Sua nova carta: {Jogador[Jogador.Count - 1]}");
+                Console.WriteLine($"Sua mão: {string.Join(", ", Jogador)} (Total: {CalcularPontuacao(Jogador)})");
+
+                if (CalcularPontuacao(Jogador) > 21)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Você ultrapassou 21 pontos! Você perdeu.");
+                    Console.ResetColor();
+                    jogoEmAndamento = false;
+                }
+            }
+            else if (escolha == "f")
+            {
+                jogoEmAndamento = false;
+            }
+            else
+            {
+                Console.WriteLine("Escolha invalida");
+            }
+        }
+
+        if (CalcularPontuacao(Jogador) <= 21)
+        {
+            Console.WriteLine($"As cartas do adex: {string.Join(", ", adex)} (Total: {CalcularPontuacao(adex)})");
+
+            while (CalcularPontuacao(adex) < 17)
+            {
+                adex.Add(CriarCarta());
+                Console.WriteLine($"O adex tirou: {adex[adex.Count - 1]}");
+                Console.WriteLine($"Cartas do adex: {string.Join(", ", adex)} (Total: {CalcularPontuacao(adex)})");
+            }
+
+            if (CalcularPontuacao(adex) > 21)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("adex ultrapassou 21 pontos. Você ganhou!");
+                Console.ResetColor();
+            }
+            else if (CalcularPontuacao(Jogador) > CalcularPontuacao(adex))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Você ganhou!");
+                Console.ResetColor();
+            }
+            else if (CalcularPontuacao(Jogador) < CalcularPontuacao(adex))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Você perdeu! O adex ganhou.");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.WriteLine("Empate!");
+            }
+        }
+    }
+
+    static string CriarCarta()
+    {
+        int indice = random.Next(baralho.Count);
+        string carta = baralho[indice];
+        baralho.RemoveAt(indice);  // Remove a carta do baralho
+        return carta;
+    }
+
+    static int CalcularPontuacao(List<string> mao)
+    {
+        int pontuacao = 0;
+        int ases = 0;
+
+        foreach (var carta in mao)
+        {
+            if (carta == "J" || carta == "Q" || carta == "K")
+            {
+                pontuacao += 10;
+            }
+            else if (carta == "A")
+            {
+                pontuacao += 11;
+                ases++;
+            }
+            else
+            {
+                pontuacao += int.Parse(carta);
+            }
+        }
+
+        // Ajustar
+        while (pontuacao > 21 && ases > 0)
+        {
+            pontuacao -= 10;
+            ases--;
+        }
+
+        return pontuacao;
+    }
+}
