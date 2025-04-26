@@ -1,0 +1,31 @@
+Random random = new Random();
+//gera numeros aleatorio //
+
+Console.WriteLine("Casino Do 7 Encontrou Ganhou");
+Console.WriteLine("precione qualquer tecla para iniciar");
+Console.ReadKey();
+Console.Clear();
+
+for (int casino = 0; casino <=10; casino++)
+{
+    //sitema para dar suspense de meio segundo//
+    System.Threading.Thread.Sleep(500);
+    //
+
+    int sorteado = random.Next(0, 13);
+    Console.WriteLine(" o numero sorteado foi:" + sorteado);
+    if (sorteado == 7)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("voce ganhouuuuuuuuuuu");
+        Console.ResetColor();
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("mais sorte na proxima");
+        Console.ResetColor();
+    }
+
+}
+Console.WriteLine(" Fim do Casino Volte sempre ");
