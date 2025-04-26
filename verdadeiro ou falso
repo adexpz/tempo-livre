@@ -1,7 +1,5 @@
 using System.ComponentModel.Design;
-//verdadeiro ou falso com os negoes molestadores//
-//console.readkey = espera o usuario clica alguma tecla para exibir a proxima pergunta 
-//console.clear =apaga as questoes acimar apos o usuario clica em qualquer tecla 
+
 
 String questoes, questoes2;
 int questao3, pontos = 0;
@@ -13,15 +11,20 @@ questoes = Console.ReadLine().ToLower();
 switch (questoes)
 {
     case "f":
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("sabido demais");
-        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+        Console.ResetColor();
+        Console.WriteLine("pressione qualquer tecla para ir para proxima questao");
         Console.ReadKey();
         pontos++;
         break;
     default:
-        Console.WriteLine("burro pra krlh");
-        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("resposta incorreta");
+        Console.ResetColor();
+        Console.WriteLine("pressione qualquer tecla para ir para proxima questao");
         Console.ReadKey();
+
        
         pontos--;
         break;
@@ -29,40 +32,46 @@ switch (questoes)
 
 Console.Clear();
 
-Console.WriteLine("o descobrimento do brasil foi em 1602?");
+Console.WriteLine("O descobrimento do Brasil foi em 1602?");
 questoes2 = Console.ReadLine().ToLower();
 switch (questoes2)
 {
     case "f":
-        Console.WriteLine("sabido");
-        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("Sabido demais");
+        Console.ResetColor();
         Console.ReadKey();
+        Console.Clear();
         pontos++;
-
         break;
-        default:
-        Console.WriteLine("os negoes sempre estrupa e bate. burro pra krlh");
-        Console.WriteLine("precione qualquer tecla para ir para proxima questao");
+
+    default:
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Resposta incorreta");
+        Console.ResetColor();
+        Console.WriteLine("Pressione qualquer tecla para ir para a próxima questão");
         Console.ReadKey();
-        
+        Console.Clear();
         pontos--;
         break;
 }
 
-Console.Clear();
 
-Console.WriteLine("oque acontecia com os povos nativos do brasil apos as chegada dos portugueses");
-Console.WriteLine("1-abusados");
-Console.WriteLine("2-escravizados");
-Console.WriteLine("3-chicoteados");
-Console.WriteLine("4-todas alternativa a cima");
+
+Console.WriteLine("o que acontecia com os povos nativos do brasil apos as chegada dos portugueses");
+Console.WriteLine("1 - abusados");
+Console.WriteLine("2 - escravizados");
+Console.WriteLine("3 - chicoteados");
+Console.WriteLine("4 - todas alternativas acima");
 questao3 = Convert.ToInt32(Console.ReadLine());
 
 switch (questao3)
 
 {
     case 4:
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("sabido demais");
+        Console.ResetColor();
         pontos++;
         break;
     default:
