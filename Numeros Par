@@ -1,0 +1,22 @@
+using System;
+int numero, i = 0, i2 = 0;
+string stop = "s";
+
+
+while (stop.ToUpper() == "S")
+{
+	Console.Write("digite algum numero:");
+	numero = Convert.ToInt32(Console.ReadLine());
+	i2++;
+	
+		
+	if (numero % 2 == 0)
+	{
+i ++;
+	}
+		
+	Console.WriteLine("deseja continuar(S/N)");
+		stop = Console.ReadLine();
+
+}
+Console.WriteLine("foram digitado "+i2+" numeros entre eles " +i+ " sao pares");
