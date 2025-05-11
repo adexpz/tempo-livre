@@ -1,0 +1,39 @@
+bool stop = true;
+Random n2 = new Random();
+int n3 = n2.Next(1, 11), n1, i= 0;
+
+while (stop)
+{
+
+    Console.WriteLine("tente adivinha o numero: ");
+    n1 = Convert.ToInt32(Console.ReadLine());
+    i++;
+
+    if (n3 == n1)
+    {
+        Console.WriteLine($"voce acertou na mosca, foram feitas {i} tentativas.");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.ResetColor();
+        
+       
+        stop = false;
+
+    }
+    else if (n1 > n3)
+    {
+        Console.WriteLine("muito alto tente novamente");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.ResetColor();
+
+    }
+
+    else 
+    {
+        Console.WriteLine("muito baixo tente novamente");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.ResetColor();
+
+    }
+}
+
+
