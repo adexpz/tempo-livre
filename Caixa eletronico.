@@ -1,0 +1,61 @@
+using System;
+using System.ComponentModel.Design;
+decimal saldo = 0, depositado;
+bool rodando = true;
+
+while (rodando)
+{
+
+
+
+    Console.WriteLine("Caixa Eletronico");
+    Console.WriteLine("1 - Ver saldo");
+    Console.WriteLine("2 - Sacar");
+    Console.WriteLine("3 - Deposita");
+    Console.WriteLine("4 - sair");
+    Console.Write("Selecione uma das opção:");
+
+    int opcao = Convert.ToInt32(Console.ReadLine());
+
+
+    switch (opcao)
+    {
+        case 1:
+            Console.WriteLine("Seu Saldo atual é, R$ " + saldo);
+            break;
+        case 2:
+            Console.Write("Digite quanto quer Sacar R$:");
+            decimal saque =  Convert.ToDecimal(Console.ReadLine());
+
+            if (saque <= saldo)
+            {
+                Console.WriteLine("Saque efetuado com Sucesso, no valor de R$ " + saque);
+                saldo -= saque;
+
+            }
+            else
+            {
+                Console.WriteLine("Não foi possível realizar o saque saldo insuficiente ");
+            }
+            break;
+    
+
+
+        case 3:
+            Console.Write("Digite quanto quer Depositar R$:");
+            depositado = Convert.ToDecimal(Console.ReadLine());
+            saldo += depositado;
+            Console.WriteLine("foram Depositados R$ " + depositado);
+            break;
+
+        case 4:
+            Console.WriteLine("saindo...");
+            Thread.Sleep(500);
+            rodando = false;
+            break;
+        default:
+            break;
+
+
+    }
+}
