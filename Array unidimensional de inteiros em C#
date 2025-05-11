@@ -1,0 +1,27 @@
+int  n2 = 0, par = 0;
+int[] n1 = new int[5];
+
+double media;
+
+for (int i = 0; i < n1.Length; i++)
+{
+
+    Console.WriteLine("digite algum numero: ");
+    n1[i] = Convert.ToInt32(Console.ReadLine());
+    if (n1[i] %2 == 0 )
+    {
+        par++;
+    }
+
+    n2 += n1[i];
+
+
+
+    
+}
+media =(double) n2 / 5;
+
+Console.WriteLine($"numeros digitados foram {string.Join(", ", n1)}");
+Console.WriteLine($"quantidade de pares {par}" );
+Console.WriteLine($"a somar dos numeros foi {n2}, a media foi {media}");
+
