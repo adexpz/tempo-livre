@@ -1,0 +1,21 @@
+int numero, i = 0, par = 0;
+string stop = "s";
+
+while (stop.ToLower() == "s")
+{
+    Console.WriteLine("digite algum numero");
+    numero = Convert.ToInt32(Console.ReadLine());
+
+    i ++;
+    if (numero % 2 == 0)
+    {
+        par++;
+
+    }
+    
+
+    Console.WriteLine("deseja continuar? (S/N)");
+    stop = Console.ReadLine();  
+
+}
+Console.WriteLine("voce digitou " + i + " numeros entre eles " + par + " sao pares ");
