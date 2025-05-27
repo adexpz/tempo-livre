@@ -1,6 +1,16 @@
-Console.Write("digite a quantidade de patinhos");
+Console.WriteLine("digite a quantidade de patinhos:");
 int patinhos = Convert.ToInt32(Console.ReadLine());
 
+if( patinhos == 1)
+{
+	Console.Write($"{patinhos} patinho foi passear \n Além das montanhas para brincar \n A mamãe gritou quá, quá, quá, Mas nenhum patinho voltou de lá\n\n");
+    
+Console.Write($" A mamãe patinha foi procurar\n Além das montanhas\n Na beira do mar\n A mamãe gritou: Quá, quá, quá, quá\n E  {patinhos} patinho voltou de lá");
+
+	return;
+}
+
+	
 for (int i = patinhos; i >= 1; i--)
 {
 
