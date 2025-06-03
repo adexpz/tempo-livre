@@ -1,0 +1,20 @@
+using System;
+double x1, x2, y1, y2;
+
+		Console.Write("Digite x1: ");
+        x1 = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Digite y1: ");
+         y1 = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Digite x2: ");
+         x2 = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Digite y2: ");
+         y2 = Convert.ToDouble(Console.ReadLine());
+
+        double distanciax = x2 - x1;
+        double distanciay = y2 - y1;
+        double total = Math.Sqrt(distanciax * distanciax + distanciay * distanciay);
+		//Math.Sqrt é um método da classe Math em C# usado para calcular a raiz quadrada de um número.
+        Console.WriteLine($"Distância entre os pontos:{total:F2}");
